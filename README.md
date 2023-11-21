@@ -26,4 +26,5 @@ Next you can run:
 Expo will show you what dependencies need to be updated. Install the dependencies expo suggest you. It is possible that there is cache and you have to run.
 
 ```
-    y
+    yarn start --reset-cache
+```
