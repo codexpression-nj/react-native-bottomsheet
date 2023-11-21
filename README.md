@@ -11,9 +11,9 @@ expo install react-native-reanimated react-native-gesture-handler
 ```
 
 ## Config babel.config.js file 
-**    
+
 plugins: ["react-native-reanimated/plugin"],
-**
+
 ## Known issues
 
 Expo SDK and libreries are always updating their versions and deprecating others. before installing the libreries run.
