@@ -11,28 +11,38 @@ import {
   TouchableOpacity,
 } from "@gorhom/bottom-sheet";
 import "react-native-gesture-handler";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
-import { Entypo } from "@expo/vector-icons";
+
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { ShakeEventExpo } from './assets/accelerometer';
 
 export default function App() {
-  const [darkmode, setDarkmode] = useState(false);
-  const [device, setDevice] = useState(false);
-  const { width } = useWindowDimensions();
-  const [theme, setTheme] = useState("dim");
+
   const [isOpen, setIsOpen] = useState(false);
 
   const bottomSheetModalRef = useRef(null);
 
   const snapPoints = ["25%","35%"];
-
+ 
   function handlePresentModal() {
+    
     bottomSheetModalRef.current?.present();
     setTimeout(() => {
       setIsOpen(true);
     }, 100);
   }
+
+useEffect(() => {
+  
+  ShakeEventExpo.addListener(() => {
+    //add your code here
+    console.log(' I say Send SMS');
+    
+  });
+
+}, []);
+  
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
 
@@ -50,6 +60,7 @@ export default function App() {
 
         <StatusBar style="auto" />
         </View>
+      
       
         <BottomSheetModal
           ref={bottomSheetModalRef}
