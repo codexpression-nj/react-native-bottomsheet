@@ -61,6 +61,7 @@ export default function App() {
 
   const handleAdd  = () => {
       setContacts([{name:'Nokanda',number:221221123}])
+      console.log(contacts);
   }
 
   return (
@@ -96,18 +97,7 @@ export default function App() {
                   <TouchableOpacity style={styles.chip} onPress={handlePresentModal} >
                     <Text style={styles.name} >Nokwanda</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.chip} onPress={handlePresentModal} >
-                    <Text style={styles.name} >Nokwanda</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.chip} onPress={handlePresentModal} >
-                    <Text style={styles.name} >Nokwanda</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.chip} onPress={handlePresentModal} >
-                    <Text style={styles.name} >Nokwanda</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.chip} onPress={handlePresentModal} >
-                    <Text style={styles.name} >Nokwanda</Text>
-                  </TouchableOpacity>
+                  
                 </View>
                 : <View style={{ margin: 15, alignItems: 'center' }}>
                   <Text style={[styles.noUserText, { fontWeight: 'bold' }]}>
@@ -122,7 +112,7 @@ export default function App() {
                 </View>
               }
             
-              <TouchableOpacity style={styles.addContact}>
+              <TouchableOpacity style={styles.addContact} onPress={()=>handleAdd()}>
                 <Text>Add Contact</Text>
               </TouchableOpacity>
               <StatusBar style="auto" />
